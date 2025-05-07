@@ -29,10 +29,6 @@ body {
 }
 
 .control-buttons {
-  height: min-content;
-}
-
-.control-buttons {
   margin-bottom: 8px;
 }
 
