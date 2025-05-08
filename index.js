@@ -12,7 +12,7 @@ Array.from(buttons).forEach(button => {
       display.textContent = '0';
     } else if (button.classList.contains('number')) {
       display.textContent = current === '0' ? value : current + value;
-    } else if (value === '.' && !display.textContent.includes('.'))
+    } else if (value === '.' && !current.includes('.'))
       display.textContent += value;
   })
 });
