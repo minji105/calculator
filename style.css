@@ -28,6 +28,8 @@ body {
   flex-direction: column;
 }
 
+
+/* 상단 버튼 */
 .control-buttons {
   margin-bottom: 8px;
 }
@@ -52,13 +54,43 @@ body {
   background-color: green;
 }
 
+
+/* 디스플레이 */
 .display {
   border: 1px solid #fff;
   height: 200px;
   margin-bottom: 16px;
+  padding: 16px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  color: #fff;
+  font-size: 5rem;
+  line-height: 5rem;
 }
 
+
+/* 버튼 */
 .buttons {
   border: 1px solid #fff;
   height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.buttons>button {
+  flex-basis: 25%;
+  font-size: 1.5rem;
+}
+
+.buttons>button.zero {
+  flex-grow: 1;
+}
+
+.buttons>button:hover {
+  background-color: #c7c7c7;
+}
+
+.buttons>button:active {
+  background-color: #d1bf1a;
 }
