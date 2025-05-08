@@ -78,20 +78,20 @@ body {
   flex-wrap: wrap;
 }
 
-.buttons>button {
+.button {
   flex-basis: 25%;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-.buttons>button.zero {
+.button.zero {
   flex-grow: 1;
 }
 
-.buttons>button:hover {
+.button:hover {
   background-color: #c7c7c7;
 }
 
-.buttons>button:active {
+.button:active {
   background-color: #d1bf1a;
 }
