@@ -10,14 +10,9 @@ Array.from(buttons).forEach(button => {
 
     if (value === 'C') {
       display.textContent = '0';
-      return;
-    }
-
-    if (button.classList.contains('number')) {
+    } else if (button.classList.contains('number')) {
       display.textContent = current === '0' ? value : current + value;
-    }
-
-    if (value === '.' && !display.textContent.includes('.'))
+    } else if (value === '.' && !display.textContent.includes('.'))
       display.textContent += value;
   })
 });
