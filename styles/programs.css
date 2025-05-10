@@ -1,0 +1,29 @@
+.program-icon {
+  width: 100px;
+  margin: 8px;
+  padding: 16px 8px;
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.program-icon>svg {
+  width: 48px;
+}
+
+.program-icon>p {
+  color: #fff;
+  text-align: center;
+  font-size: 1.25rem;
+  user-select: none;
+}
+
+.program-icon:hover {
+  background-image: url('../imgs/dot.jpg');
+  background-repeat: repeat;
+  background-size: 100px;
+  background-size: cover;
+}

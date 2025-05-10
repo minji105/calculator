@@ -1,0 +1,42 @@
+.banjuk {
+  width: 300px;
+  background-color: #fff;
+  padding: 4px;
+  display: none;
+  user-select: none;
+  position: absolute;
+}
+
+.open {
+  display: block;
+}
+
+.banjuk-titlebar {
+  font-size: 1.25rem;
+  margin-left: 4px;
+  justify-content: space-between;
+  cursor: grab;
+}
+
+.banjuk-titlebar:active {
+  cursor: grabbing;
+}
+
+.banjuk-titlebar>button {
+  background-color: transparent;
+  border: none;
+  height: 24px;
+  width: 24px;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.banjuk-titlebar>button:hover {
+  background-color: red;
+  color: #fff;
+}
+
+.banjuk>img {
+  width: 100%;
+}

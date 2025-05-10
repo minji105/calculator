@@ -5,42 +5,206 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>계산기</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/programs.css">
+  <link rel="stylesheet" href="./styles/calulator.css">
+  <link rel="stylesheet" href="./styles/header.css">
+  <link rel="stylesheet" href="./styles/banjuk.css">
 </head>
 
 <body>
-  <div class="container-wrapper">
-    <div class="container">
-      <div class="control-buttons">
-        <button></button>
-        <button></button>
-        <button></button>
+  <!-- header.css -->
+  <header class="flex" id="header">
+    <ul class="flex">
+      <li>Profiler</li>
+      <li>File</li>
+      <li>Edit</li>
+      <li>View</li>
+      <li>Window</li>
+      <li>Help</li>
+    </ul>
+    <p class="time"></p>
+  </header>
+
+  <!-- programs.css -->
+  <div class="program-icon flex" id="calculator-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+      id="Money-Payments-Accounting-Calculator--Streamline-Pixel">
+      <desc>Money Payments Accounting Calculator Streamline Icon: https://streamlinehq.com</desc>
+      <title>money-payments-accounting-calculator</title>
+      <g>
+        <path d="M19.42875 2.2874999999999996h1.1400000000000001v19.424999999999997h-1.1400000000000001Z" fill="#fff"
+          stroke-width="0.75"></path>
+        <path d="M18.28875 21.7125h1.1400000000000001v1.1475h-1.1400000000000001Z" fill="#fff" stroke-width="0.75">
+        </path>
+        <path d="M18.28875 1.1400000000000001h1.1400000000000001v1.1475h-1.1400000000000001Z" fill="#fff"
+          stroke-width="0.75"></path>
+        <path d="M10.286249999999999 18.285h8.0025v3.4275h-8.0025Z" fill="#fff" stroke-width="0.75"></path>
+        <path d="M5.71125 22.86h12.5775V24H5.71125Z" fill="#fff" stroke-width="0.75"></path>
+        <path
+          d="M18.28875 13.7175h-3.4275v3.4275h3.4275Zm-1.1475 2.2800000000000002h-1.1400000000000001v-1.1400000000000001h1.1400000000000001Z"
+          fill="#fff" stroke-width="0.75"></path>
+        <path
+          d="M18.28875 9.1425h-3.4275v3.4275h3.4275Zm-1.1475 2.2874999999999996h-1.1400000000000001v-1.1475h1.1400000000000001Z"
+          fill="#fff" stroke-width="0.75"></path>
+        <path d="M5.71125 2.2874999999999996v5.715h12.5775V2.2874999999999996Zm11.43 4.5675H6.85875V3.4275h10.2825Z"
+          fill="#fff" stroke-width="0.75"></path>
+        <path d="M14.861250000000002 4.574999999999999h1.1400000000000001v1.1400000000000001h-1.1400000000000001Z"
+          fill="#fff" stroke-width="0.75"></path>
+        <path d="M12.57375 4.574999999999999h1.1400000000000001v1.1400000000000001h-1.1400000000000001Z" fill="#000000"
+          stroke-width="0.75"></path>
+        <path
+          d="M13.713750000000001 13.7175h-3.4275v3.4275h3.4275Zm-1.1400000000000001 2.2800000000000002h-1.1475v-1.1400000000000001h1.1475Z"
+          fill="#fff" stroke-width="0.75"></path>
+        <path
+          d="M13.713750000000001 9.1425h-3.4275v3.4275h3.4275Zm-1.1400000000000001 2.2874999999999996h-1.1475v-1.1475h1.1475Z"
+          fill="#fff" stroke-width="0.75"></path>
+        <path
+          d="M9.149999999999999 21.7125v-3.4275H5.71125v3.4275Zm-2.2874999999999996 -2.2800000000000002h1.1400000000000001v1.1400000000000001H6.85875Z"
+          fill="#fff" stroke-width="0.75"></path>
+        <path
+          d="M9.149999999999999 13.7175H5.71125v3.4275H9.149999999999999Zm-1.1475 2.2800000000000002H6.85875v-1.1400000000000001h1.1400000000000001Z"
+          fill="#fff" stroke-width="0.75"></path>
+        <path
+          d="M9.149999999999999 9.1425H5.71125v3.4275H9.149999999999999Zm-1.1475 2.2874999999999996H6.85875v-1.1475h1.1400000000000001Z"
+          fill="#fff" stroke-width="0.75"></path>
+        <path d="M5.71125 0h12.5775v1.1400000000000001H5.71125Z" fill="#fff" stroke-width="0.75"></path>
+        <path d="M4.57125 21.7125h1.1400000000000001v1.1475h-1.1400000000000001Z" fill="#fff" stroke-width="0.75">
+        </path>
+        <path d="M4.57125 1.1400000000000001h1.1400000000000001v1.1475h-1.1400000000000001Z" fill="#fff"
+          stroke-width="0.75"></path>
+        <path d="M3.4312500000000004 2.2874999999999996h1.1400000000000001v19.424999999999997h-1.1400000000000001Z"
+          fill="#fff" stroke-width="0.75"></path>
+      </g>
+    </svg>
+    <p>Calculator</p>
+  </div>
+  <div class="program-icon flex" id="banjuk-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Interface-Essential-Floppy-Disk--Streamline-Pixel">
+      <desc>Interface Essential Floppy Disk Streamline Icon: https://streamlinehq.com</desc>
+      <title>interface-essential-floppy-disk</title>
+      <g>
+        <path d="M22.8525 2.2874999999999996H24v20.572499999999998h-1.1475Z" fill="#fff" stroke-width="0.75"></path>
+        <g>
+          <path d="M21.7125 1.1400000000000001h1.1400000000000001v1.1475h-1.1400000000000001Z" fill="#fff"
+            stroke-width="0.75"></path>
+          <path
+            d="m20.572499999999998 12.57 -1.1475 0 0 10.290000000000001 -14.857499999999998 0 0 -10.290000000000001 -1.1400000000000001 0 0 10.290000000000001 -2.2874999999999996 0 0 1.1400000000000001 21.7125 0 0 -1.1400000000000001 -2.2800000000000002 0 0 -10.290000000000001z"
+            fill="#fff" stroke-width="0.75"></path>
+          <path
+            d="M13.71 6.855h4.574999999999999V2.2874999999999996h-4.574999999999999Zm1.1475 -3.4275h1.1400000000000001v2.2874999999999996h-1.1400000000000001Z"
+            fill="#fff" stroke-width="0.75"></path>
+          <path d="M6.855 19.424999999999997h10.2825v1.1475H6.855Z" fill="#fff" stroke-width="0.75"></path>
+          <path d="M6.855 15.997499999999999h10.2825v1.1475H6.855Z" fill="#fff" stroke-width="0.75"></path>
+          <path d="M4.5675 11.43H19.424999999999997v1.1400000000000001H4.5675Z" fill="#fff" stroke-width="0.75">
+          </path>
+          <path
+            d="M3.4275 6.855h1.1400000000000001V1.1400000000000001h2.2874999999999996v5.715H4.5675v1.1475h2.2874999999999996v1.1400000000000001h13.7175V1.1400000000000001h1.1400000000000001V0H2.2874999999999996v1.1400000000000001h1.1400000000000001Zm4.5675 -5.715H19.424999999999997v6.862500000000001H7.995Z"
+            fill="#fff" stroke-width="0.75"></path>
+          <path d="M1.1400000000000001 1.1400000000000001h1.1475v1.1475H1.1400000000000001Z" fill="#fff"
+            stroke-width="0.75"></path>
+          <path d="M0 2.2874999999999996h1.1400000000000001v20.572499999999998H0Z" fill="#fff" stroke-width="0.75">
+          </path>
+        </g>
+      </g>
+    </svg>
+    <p>Banjuk</p>
+  </div>
+
+  <!-- calulator.css -->
+  <div class="calculator-wrapper draggable flex">
+    <div class="cal-titlebar titlebar flex">
+      <p class="cal-titlebar__title">Calculator</p>
+      <div class="titlebar__control-buttons">
+        <button id="minimize-button"></button>
+        <button id="cal-close-button">✕</button>
       </div>
+    </div>
+
+    <div class="calculator__nav">
+      <ul class="flex">
+        <li>EDIT</li>
+        <li>VIEW</li>
+        <li>HELP</li>
+      </ul>
+    </div>
+
+    <div class="calculator-content">
       <div class="display" id="display">0</div>
       <div class="buttons">
         <button class="button function" value="C">C</button>
         <button class="button function" value="±">±</button>
         <button class="button function" value="%">%</button>
         <button class="button operator" value="/">/</button>
+
         <button class="button number" value="7">7</button>
         <button class="button number" value="8">8</button>
         <button class="button number" value="9">9</button>
-        <button class="button operator" value="*">*</button>
+        <button class="button operator" value="*">x</button>
+
         <button class="button number" value="4">4</button>
         <button class="button number" value="5">5</button>
         <button class="button number" value="6">6</button>
         <button class="button operator" value="-">-</button>
+
         <button class="button number" value="1">1</button>
         <button class="button number" value="2">2</button>
         <button class="button number" value="3">3</button>
+        <button class="button equel" value="=">=</button>
+
         <button class="button operator" value="+">+</button>
         <button class="button number zero" value="0">0</button>
         <button class="button" value=".">.</button>
-        <button class="button" value="=">=</button>
       </div>
     </div>
   </div>
-  <script src="./index.js"></script>
+
+  <div class="minimize">
+    <div class="minimize__side left"></div>
+    <p>Calculator</p>
+    <div class="minimize__side right"></div>
+  </div>
+
+  <!-- banjuk.css -->
+  <div class="banjuk draggable">
+    <div class="banjuk-titlebar titlebar flex">
+      <p class="banjuk-titlebar__title">Banjuk</p>
+      <button id="banjuk-close-button">✕</button>
+    </div>
+    <img src="./imgs/banjuk.jpg" alt="반죽이">
+  </div>
+
+  <div class="curser-follower">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Social-Rewards-Rating-Star-2--Streamline-Pixel">
+      <desc>Social Rewards Rating Star 2 Streamline Icon: https://streamlinehq.com</desc>
+      <title>social-rewards-rating-star-2</title>
+      <g>
+        <path
+          d="M22.86 7.995h-6.862500000000001v1.1475h-1.1400000000000001v1.1400000000000001h-1.1400000000000001v1.1400000000000001h-1.1475V3.4275h1.1475V1.1400000000000001h-1.1475V0h-1.1400000000000001v1.1400000000000001h-1.1475v2.2874999999999996h-1.1400000000000001v2.2874999999999996h-1.1400000000000001v2.2800000000000002H1.1400000000000001v1.1475H0v1.1400000000000001h1.1400000000000001v1.1400000000000001h1.1475v1.1475H4.574999999999999v1.1400000000000001h1.1400000000000001v2.2874999999999996h1.1400000000000001v-1.1400000000000001h2.2874999999999996v-1.1475h2.2874999999999996v1.1475h-1.1475v1.1400000000000001h-1.1400000000000001v1.1400000000000001h-1.1400000000000001v1.1475H6.855v1.1400000000000001H5.715v1.1475H4.574999999999999v1.1400000000000001H3.4275v-1.1400000000000001H2.2874999999999996v2.2800000000000002h1.1400000000000001V24h2.2874999999999996v-1.1475h1.1400000000000001v-1.1400000000000001h2.2874999999999996v-1.1400000000000001h1.1400000000000001V19.424999999999997h1.1475v-1.1400000000000001h1.1400000000000001v-3.4275h1.1475v1.1400000000000001h1.1400000000000001v1.1400000000000001h1.1400000000000001v1.1475h1.1475v1.1400000000000001h1.1400000000000001v1.1475h1.1400000000000001v2.2800000000000002h-1.1400000000000001V24h2.2874999999999996v-1.1475h1.1400000000000001v-2.2800000000000002h-1.1400000000000001v-2.2874999999999996H19.424999999999997v-2.2874999999999996h-1.1400000000000001v-2.2874999999999996h1.1400000000000001v-1.1400000000000001h-2.2800000000000002v1.1400000000000001h-4.574999999999999v-1.1400000000000001h3.4275v-1.1475h1.1475v-1.1400000000000001h4.5675v1.1400000000000001h1.1475v-1.1400000000000001H24v-1.1400000000000001h-1.1400000000000001Zm-12.5775 4.574999999999999h-2.2800000000000002v-1.1475H5.715v-1.1400000000000001H3.4275v-1.1400000000000001h5.715v1.1400000000000001h1.1400000000000001Z"
+          fill="yellow" stroke-width="0.75"></path>
+        <path d="M19.424999999999997 11.4225h2.2874999999999996v1.1475H19.424999999999997Z" fill="yellow"
+          stroke-width="0.75"></path>
+        <path d="M17.145 21.7125h1.1400000000000001v1.1400000000000001h-1.1400000000000001Z" fill="yellow"
+          stroke-width="0.75"></path>
+        <path d="M14.857499999999998 20.572499999999998h2.2874999999999996v1.1400000000000001h-2.2874999999999996Z"
+          fill="yellow" stroke-width="0.75"></path>
+        <path d="M14.857499999999998 5.715h1.1400000000000001v2.2800000000000002h-1.1400000000000001Z" fill="yellow"
+          stroke-width="0.75"></path>
+        <path d="M13.7175 19.424999999999997h1.1400000000000001v1.1475h-1.1400000000000001Z" fill="yellow"
+          stroke-width="0.75"></path>
+        <path d="M13.7175 3.4275h1.1400000000000001v2.2874999999999996h-1.1400000000000001Z" fill="yellow"
+          stroke-width="0.75"></path>
+        <path d="M12.57 18.285h1.1475v1.1400000000000001h-1.1475Z" fill="yellow" stroke-width="0.75"></path>
+        <path d="M4.574999999999999 15.997499999999999h1.1400000000000001v2.2874999999999996H4.574999999999999Z"
+          fill="yellow" stroke-width="0.75"></path>
+        <path d="M3.4275 18.285H4.574999999999999v2.2874999999999996H3.4275Z" fill="yellow" stroke-width="0.75"></path>
+      </g>
+    </svg>
+  </div>
+
+  <script src="./scripts/main.js"></script>
+  <script src="./scripts/calculator.js"></script>
+  <script src="./scripts/cursorFollower.js"></script>
 </body>
 
 </html>
