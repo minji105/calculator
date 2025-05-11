@@ -4,8 +4,7 @@ const display = document.getElementById('display');
 let firstOperand = null;
 let operator = null;
 
-let isSecondOperand = false;
-let isResult = false;
+let isNewInput = false; // 두번째 피연산자 입력 시작
 
 Array.from(buttons).forEach(button => {
   button.addEventListener('click', () => {
@@ -14,76 +13,73 @@ Array.from(buttons).forEach(button => {
 
     console.log(value);
 
-    if (value === 'C') {
+    if (value === 'C') {  // 모든 변수 초기화
       display.textContent = '0';
       firstOperand = null;
-      isSecondOperand = false;
-      isResult = false;
-    } else if (button.classList.contains('number')) {
-      // 두번째 피연산자의 시작: 디스플레이를 value로 초기화
-      // 그 외의 경우: 0 검사하고 current에 value 이어붙임
+      operator = null;
+      isNewInput = false;
+      return;
+    }
 
-      if (isResult) {   // 결과 상태에서 숫자 클릭: 새 계산 시작
-        firstOperand = null;
-        operator = null;
-        isSecondOperand = false;
-        isResult = false;
+    if (value === '%') {
+      display.textContent = current / 100;
+      return;
+    }
+
+    if (value === '±') {
+      display.textContent = current * (-1);
+      return;
+    }
+
+    if (button.classList.contains('number')) {
+      if (isNewInput) {
         display.textContent = value;
+        isNewInput = false;
       } else {
-        if (isSecondOperand) {
-          display.textContent = value;
-          isSecondOperand = false;
-        } else
-          display.textContent = current === '0' ? value : current + value;
+        display.textContent = current === '0' ? value : current + value;
       }
-    } else if (button.classList.contains('operator')) {
-      if (isResult) {    // 결과 상태에서 연산자 클릭: 이어서 계산
-        isResult = false;
-      } else
-        firstOperand = current;
-      // firstOperand = firstOperand === null ? current : firstOperand;
+    }
+    else if (value === '.' && !current.includes('.'))
+      display.textContent += value;
+    else if (button.classList.contains('operator')) {
+      if (firstOperand !== null)  // 연속 계산
+        display.textContent = calculate(firstOperand, operator, current);
 
+      firstOperand = display.textContent;
       operator = value;
-      isSecondOperand = true;
+      isNewInput = true;  // 다음 숫자부터 두번째 피연산자로 간주
 
       console.log(`First Operand: ${firstOperand}, operator: ${operator}`);
-    } else if (value === '=') {
+    }
+    else if (value === '=') {
       display.textContent = calculate(firstOperand, operator, current);
       firstOperand = display.textContent;
-      isResult = true;
-    } else if (value === '.' && !current.includes('.'))
-      display.textContent += value;
+      operator = null;
+    }
   })
 });
 
 // = 눌러서 결과 나온뒤
-// 숫자 누르면 firstOperand, isSecondOperand 초기화
+// 숫자 누르면 firstOperand, isNewInput 초기화
 // 연산자 누르면 결과가 firstOperand
 
-const calculate = (firstOperand, operator, secondOperand) => {
-  firstOperand = parseFloat(firstOperand);
-  secondOperand = parseFloat(secondOperand);
-  let result = 0;
+const calculate = (a, operator, b) => {
+  a = parseFloat(a);
+  b = parseFloat(b);
 
   switch (operator) {
     case '+':
-      result = firstOperand + secondOperand;
-      break;
+      return a + b;
     case '-':
-      result = firstOperand - secondOperand;
-      break;
+      return a - b;
     case '*':
-      result = firstOperand * secondOperand;
-      break;
+      return a * b;
     case '/':
-      result = firstOperand / secondOperand;
-      break;
+      return b === 0 ? 'Cannot divide by zero.' : a / b;
     default:
-      break;
+      return b;
   }
-
-  return result;
 }
 
-// TODO: 연산자만 누르고 = 누른 경우 처리
-// TODO: 나누기 0 처리 (무한대 뜸)
+// TODO: 디스플레이에 연산식 나타나게
+// TODO: 히스토리
