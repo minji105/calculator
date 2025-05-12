@@ -40,8 +40,22 @@ Array.from(buttons).forEach(button => {
     }
     else if (value === '=') {
       display.textContent = calculate(firstOperand, operator, current);
-      firstOperand = display.textContent;
-      operator = null;
+
+      // 0으로 나누었거나, 값이 NaN이거나, =을 연속해서 누른 경우 기록하지 않음
+      if (display.textContent.charAt(0) !== 'C' && display.textContent !== 'NaN' && operator !== null) {
+        const operation = document.createElement('p');
+        operation.textContent = `${firstOperand} ${operator} ${current} =`;
+        operation.classList.add('operation');
+        historyContainer.append(operation);
+
+        const result = document.createElement('p');
+        result.textContent = display.textContent;
+        result.classList.add('result');
+        historyContainer.append(result);
+
+        firstOperand = display.textContent;
+        operator = null;
+      }
     }
   })
 });
@@ -59,7 +73,7 @@ const calculate = (a, operator, b) => {
       return a + b;
     case '-':
       return a - b;
-    case '*':
+    case 'x':
       return a * b;
     case '/':
       return b === 0 ? 'Cannot divide by zero.' : a / b;
@@ -90,3 +104,4 @@ const handleFunction = (value, current) => {
 // TODO: 디스플레이에 연산식 나타나게
 // TODO: 히스토리
 // TODO: 닫았다 다시 열면 초기화되어있게
+// TODO: 결과 나온 후 숫자 입력하면 이어서 입력됨 -> 새로 입력되게 수정

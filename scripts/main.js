@@ -9,6 +9,8 @@ const banjukIcon = document.querySelector('#banjuk-icon');
 const titlebars = document.querySelectorAll('.titlebar');
 const header = document.querySelector('#header');
 const minimizeTab = document.querySelector('.minimize');
+const resize = document.querySelector('.resize');
+const historyContainer = document.querySelector('.content-history');
 
 // 현재 시간
 const updateClock = () => {
@@ -99,3 +101,29 @@ titlebars.forEach((titlebar) => {
     document.addEventListener('mouseup', onMouseUp);
   });
 })
+
+// 창 너비 리사이즈
+let isResizing = false;
+
+resize.addEventListener('mousedown', (e) => {
+  isResizing = true;
+  document.addEventListener('mousemove', resizing);
+  document.addEventListener('mouseup', stopResizing);
+})
+
+const resizing = (e) => {
+  if (isResizing) {
+    const newWidth = e.clientX - calculator.getBoundingClientRect().left;
+    calculator.style.width = `${newWidth}px`;
+
+    if (calculator.getBoundingClientRect().width >= 500) 
+      historyContainer.style.display = 'block';
+    else historyContainer.style.display = 'none';
+  }
+}
+
+const stopResizing = () => {
+  isResizing = false;
+  document.removeEventListener('mousemove', resizing);
+  document.removeEventListener('mouseup', stopResizing);
+}

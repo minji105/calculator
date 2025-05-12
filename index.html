@@ -121,6 +121,7 @@
       </div>
     </div>
 
+    <!-- TODO: 편집 아래 기록 지우기 버튼 추가 -->
     <div class="calculator__nav">
       <ul class="flex">
         <li>EDIT</li>
@@ -129,34 +130,40 @@
       </ul>
     </div>
 
-    <div class="calculator-content">
-      <div class="display" id="display">0</div>
-      <div class="buttons">
-        <button class="button function" value="C">C</button>
-        <button class="button function" value="±">±</button>
-        <button class="button function" value="%">%</button>
-        <button class="button operator" value="/">/</button>
+    <div class="calculator-content flex">
+      <div class="calculator-content__main flex">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+          <button class="button function" value="C">C</button>
+          <button class="button function" value="±">±</button>
+          <button class="button function" value="%">%</button>
+          <button class="button operator" value="/">/</button>
 
-        <button class="button number" value="7">7</button>
-        <button class="button number" value="8">8</button>
-        <button class="button number" value="9">9</button>
-        <button class="button operator" value="*">x</button>
+          <button class="button number" value="7">7</button>
+          <button class="button number" value="8">8</button>
+          <button class="button number" value="9">9</button>
+          <button class="button operator" value="x">x</button>
 
-        <button class="button number" value="4">4</button>
-        <button class="button number" value="5">5</button>
-        <button class="button number" value="6">6</button>
-        <button class="button operator" value="-">-</button>
+          <button class="button number" value="4">4</button>
+          <button class="button number" value="5">5</button>
+          <button class="button number" value="6">6</button>
+          <button class="button operator" value="-">-</button>
 
-        <button class="button number" value="1">1</button>
-        <button class="button number" value="2">2</button>
-        <button class="button number" value="3">3</button>
-        <button class="button equel" value="=">=</button>
+          <button class="button number" value="1">1</button>
+          <button class="button number" value="2">2</button>
+          <button class="button number" value="3">3</button>
+          <button class="button equel" value="=">=</button>
 
-        <button class="button operator" value="+">+</button>
-        <button class="button number zero" value="0">0</button>
-        <button class="button" value=".">.</button>
+          <button class="button operator" value="+">+</button>
+          <button class="button number zero" value="0">0</button>
+          <button class="button" value=".">.</button>
+        </div>
       </div>
+
+      <div class="content-history"></div>
     </div>
+
+    <div class="resize"></div>
   </div>
 
   <div class="minimize">
