@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
     requestAnimationFrame(animateCursor);
   }
 
-  document.addEventListener("mousemove", function (event) {
-    mouseX = event.clientX;
-    mouseY = event.clientY + window.scrollY;
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
   });
 
   animateCursor();

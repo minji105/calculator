@@ -30,31 +30,31 @@ setInterval(updateClock, 1000);
 
 // 아이콘 클릭 시 창 오픈
 calculatorIcon.addEventListener('dblclick', () => {
-  calculator.classList.add('open');
-  minimizeTab.classList.remove('minimize-active');
+  calculator.classList.toggle('open');
+  minimizeTab.classList.toggle('minimize-active');
 })
 banjukIcon.addEventListener('dblclick', () => {
-  banjuk.classList.add('open');
+  banjuk.classList.toggle('open');
 })
 
 // 창 닫기 버튼
 calCloseBtn.addEventListener('click', () => {
-  calculator.classList.remove('open');
+  calculator.classList.toggle('open');
 })
 banCloseBtn.addEventListener('click', () => {
-  banjuk.classList.remove('open');
+  banjuk.classList.toggle('open');
 })
 
 // 창 최소화 버튼
 minimizeBtn.addEventListener('click', () => {
-  calculator.classList.remove('open');
-  minimizeTab.classList.add('minimize-active');
+  calculator.classList.toggle('open');
+  minimizeTab.classList.toggle('minimize-active');
 })
 
 // 최소화 탭 클릭
 minimizeTab.addEventListener('click', () => {
-  calculator.classList.add('open');
-  minimizeTab.classList.remove('minimize-active');
+  calculator.classList.toggle('open');
+  minimizeTab.classList.toggle('minimize-active');
 })
 
 // 창 드래그
