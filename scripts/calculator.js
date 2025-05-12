@@ -13,21 +13,8 @@ Array.from(buttons).forEach(button => {
 
     console.log(value);
 
-    if (value === 'C') {  // 모든 변수 초기화
-      display.textContent = '0';
-      firstOperand = null;
-      operator = null;
-      isNewInput = false;
-      return;
-    }
-
-    if (value === '%') {
-      display.textContent = current / 100;
-      return;
-    }
-
-    if (value === '±') {
-      display.textContent = current * (-1);
+    if (button.classList.contains('function')) {
+      handleFunction(value, current);
       return;
     }
 
@@ -81,5 +68,25 @@ const calculate = (a, operator, b) => {
   }
 }
 
+const handleFunction = (value, current) => {
+  switch (value) {
+    case 'C':
+      display.textContent = '0';
+      firstOperand = null;
+      operator = null;
+      isNewInput = false;
+      break;
+    case '%':
+      display.textContent = current / 100;
+      break;
+    case '±':
+      display.textContent = current * (-1);
+      break;
+    default:
+      break;
+  }
+}
+
 // TODO: 디스플레이에 연산식 나타나게
 // TODO: 히스토리
+// TODO: 닫았다 다시 열면 초기화되어있게
