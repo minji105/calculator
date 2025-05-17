@@ -103,6 +103,11 @@ const handleFunction = (value, current) => {
   }
 }
 
+document.addEventListener('keydown', (e) => {
+  const button = document.querySelector(`button[data-key="${e.key}"]`);
+  if (button) button.click();
+})
+
 // TODO: 디스플레이에 연산식 나타나게
 // TODO: 닫았다 다시 열면 초기화되어있게
 // TODO: 결과 나온 후 숫자 입력하면 이어서 입력됨 -> 새로 입력되게 수정
