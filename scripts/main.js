@@ -10,7 +10,10 @@ const titlebars = document.querySelectorAll('.titlebar');
 const header = document.querySelector('#header');
 const minimizeTab = document.querySelector('.minimize');
 const resize = document.querySelector('.resize');
-const historyContainer = document.querySelector('.content-history');
+
+const historyContainer = document.querySelector('.calculator-content__history');
+const history = document.querySelector('.history');
+const historyClearBtn = document.querySelector('.history-clear');
 
 // 현재 시간
 const updateClock = () => {
@@ -21,10 +24,12 @@ const updateClock = () => {
   const ampm = hour >= 12 ? 'PM' : 'AM';
   hour = hour %= 12 || 12;
 
-  minute = (minute + '').length === 1 ? '0' + minute : minute;
-  hour = (hour + '').length === 1 ? '0' + hour : hour;
+  const padded = (num) => String(num).padStart(2, '0');
 
-  clock.textContent = `${hour}:${minute} ${ampm}`;
+  // minute = (minute + '').length === 1 ? '0' + minute : minute;
+  // hour = (hour + '').length === 1 ? '0' + hour : hour;
+
+  clock.textContent = `${padded(hour)}:${padded(minute)} ${ampm}`;
 }
 
 updateClock();
@@ -32,19 +37,19 @@ setInterval(updateClock, 1000);
 
 // 아이콘 클릭 시 창 오픈
 calculatorIcon.addEventListener('dblclick', () => {
-  calculator.classList.add('open');
+  calculator.classList.toggle('open');
   minimizeTab.classList.remove('minimize-active');
 })
 banjukIcon.addEventListener('dblclick', () => {
-  banjuk.classList.add('open');
+  banjuk.classList.toggle('open');
 })
 
 // 창 닫기 버튼
 calCloseBtn.addEventListener('click', () => {
-  calculator.classList.remove('open');
+  calculator.classList.toggle('open');
 })
 banCloseBtn.addEventListener('click', () => {
-  banjuk.classList.remove('open');
+  banjuk.classList.toggle('open');
 })
 
 // 창 최소화 버튼
@@ -60,7 +65,6 @@ minimizeTab.addEventListener('click', () => {
 })
 
 // 창 드래그
-// TODO: 드래그 구현 방법 다시 정리
 titlebars.forEach((titlebar) => {
   let offsetX = 0, offsetY = 0;
   let isDragging = false;
@@ -105,7 +109,7 @@ titlebars.forEach((titlebar) => {
 // 창 너비 리사이즈
 let isResizing = false;
 
-resize.addEventListener('mousedown', (e) => {
+resize.addEventListener('mousedown', () => {
   isResizing = true;
   document.addEventListener('mousemove', resizing);
   document.addEventListener('mouseup', stopResizing);
@@ -127,3 +131,8 @@ const stopResizing = () => {
   document.removeEventListener('mousemove', resizing);
   document.removeEventListener('mouseup', stopResizing);
 }
+
+// 기록 초기화
+historyClearBtn.addEventListener('click', () =>{
+  history.innerHTML = '';
+})

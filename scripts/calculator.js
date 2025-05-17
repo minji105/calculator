@@ -46,12 +46,14 @@ Array.from(buttons).forEach(button => {
         const operation = document.createElement('p');
         operation.textContent = `${firstOperand} ${operator} ${current} =`;
         operation.classList.add('operation');
-        historyContainer.append(operation);
+        history.append(operation);
 
         const result = document.createElement('p');
         result.textContent = display.textContent;
         result.classList.add('result');
-        historyContainer.append(result);
+        history.append(result);
+
+        history.scrollTop = history.scrollHeight;
 
         firstOperand = display.textContent;
         operator = null;
@@ -102,6 +104,5 @@ const handleFunction = (value, current) => {
 }
 
 // TODO: 디스플레이에 연산식 나타나게
-// TODO: 히스토리
 // TODO: 닫았다 다시 열면 초기화되어있게
 // TODO: 결과 나온 후 숫자 입력하면 이어서 입력됨 -> 새로 입력되게 수정
